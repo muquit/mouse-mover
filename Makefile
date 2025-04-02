@@ -15,7 +15,7 @@ build:
 	@CGO_ENABLED=0 GOOS=windows GOARCH=386 go build -ldflags="-s -w" -o $(BINARY)
 
 build_all:
-	echo "*** Cross Compiling ...."
+	@echo "*** Cross Compiling $(BINARY)...."
 	go-xbuild-go -pi=false
 
 doc:
