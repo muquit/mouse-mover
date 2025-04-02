@@ -6,15 +6,19 @@ be used to prevent system to go to sleep without changing power plan.
 
 # Synopsis
 ```
-   Usage of mouse-mover.exe:
-    -corner string
+mouse-mover.exe v1.0.1
+Compiled with go version: go1.22.5
+A program to move mouse to any corner if the system is idle for x seconds
+Usage mouse-mover.exe [options]
+Where the options are:
+  -corner string
         Corner to move mouse to (ulc, urc, blc, brc) (default "ulc")
-    -idle int
+  -idle int
         Idle time in seconds before moving mouse (default 60)
-    -tick int
+  -tick int
         Print idle time every X seconds (0 to disable)
-    -version
-       Show version info
+  -version
+        Show version info
 ```
 
 # Download

@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"runtime"
 	"flag"
 	"fmt"
 	"strings"
@@ -73,12 +74,25 @@ func getCornerPosition(corner string) Corner {
 	return corners["ulc"] // Default to upper left if invalid
 }
 
+func usage() {
+	fmt.Printf("mouse-mover.exe v%s\n",VERSION)
+	fmt.Printf("Compiled with go version: %s\n", runtime.Version())
+	fmt.Printf("A program to move mouse to any corner if the system is idle for x seconds\n")
+	fmt.Printf("Usage mouse-mover.exe [options]\n")
+	fmt.Printf("Where the options are:\n")
+	flag.PrintDefaults()
+}
+
 func main() {
 	var showVersion bool
 	flag.BoolVar(&showVersion, "version", false, "Show version info")
 	idleTimePtr := flag.Int("idle", 60, "Idle time in seconds before moving mouse")
 	cornerPtr := flag.String("corner", "ulc", "Corner to move mouse to (ulc, urc, blc, brc)")
 	tickPtr := flag.Int("tick", 0, "Print idle time every X seconds (0 to disable)")
+
+	flag.Usage = func() {
+		usage()
+	}
 	flag.Parse()
 
 	if (showVersion) {
