@@ -1,0 +1,11 @@
+A note to myself.
+
+Create a file notes.md with release notes. Then run:
+
+mk_release.sh (part of https://https://github.com/muquit/go-xbuild-go)
+The script just calls gh to make the release.
+
+--
+Apr-02-2025 
+
+
